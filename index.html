@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdo Hamdy - Frontend & Full-Stack Developer</title>
+    <meta name="description"
+        content="Abdo Hamdy (Abdelrahman Hamdi Roubi) - IT student and Frontend/Full-Stack Developer specializing in JavaScript, PHP, MySQL, and networking (Cisco CCNA). Based in Fayoum, Egypt.">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Abdo Hamdy - Frontend & Full-Stack Developer">
+    <meta property="og:description"
+        content="IT student and Frontend/Full-Stack Developer specializing in JavaScript, PHP, MySQL, and networking (Cisco CCNA).">
+    <meta property="og:image" content="assets/images/abdo-profile.jpg">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Abdo Hamdy - Frontend & Full-Stack Developer">
+    <meta name="twitter:description" content="IT student and Frontend/Full-Stack Developer - JavaScript, PHP, MySQL, Networking.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+
+    <!-- Applied before first paint so there's no flash of the wrong theme -->
+    <script>
+        (function () {
+            var saved = localStorage.getItem('theme');
+            var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (saved === 'dark' || (!saved && prefersDark)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+
+    <!-- Typography: Space Grotesk for headings, Inter for body text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- EmailJS: init once with your public key -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            if (typeof emailjs !== 'undefined') {
+                emailjs.init({ publicKey: 'Vyjllnfsu1EPOIlQ8' });
+            }
+        })();
+    </script>
+
+    <!-- Structured Data (Schema.org Person) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Abdelrahman Hamdi Roubi",
+        "alternateName": "Abdo Hamdy",
+        "jobTitle": "Frontend & Full-Stack Developer",
+        "description": "IT student specializing in Frontend and Full-Stack Web Development, Networking (Cisco CCNA), and Cybersecurity.",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Fayoum",
+            "addressCountry": "EG"
+        },
+        "email": "mailto:abdohamdyy64@gmail.com",
+        "knowsLanguage": ["Arabic", "English", "Italian"],
+        "sameAs": [
+            "https://github.com/Abdelrahman-Hamdi12",
+            "https://linkedin.com/in/abdo-hamdy-9b3080332",
+            "https://www.facebook.com/share/17taTJw472/",
+            "https://www.instagram.com/abdul_hamdy1"
+        ]
+    }
+    </script>
+</head>
+
+<body>
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <nav class="navbar" id="navbar">
+        <a href="#home" class="logo">
+            <img src="assets/images/favicon.svg" alt="Abdo Hamdy logo" style="height: 32px; vertical-align: middle; margin-right: 8px;">
+            Abdo Hamdy
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home" class="nav-link" data-i18n="nav_home">Home</a></li>
+            <li><a href="#about" class="nav-link" data-i18n="nav_about">About</a></li>
+            <li><a href="#skills" class="nav-link" data-i18n="nav_skills">Skills</a></li>
+            <li><a href="#projects" class="nav-link" data-i18n="nav_projects">Projects</a></li>
+            <li><a href="#services" class="nav-link" data-i18n="nav_services">Services</a></li>
+            <li><a href="#contact" class="nav-link" data-i18n="nav_contact">Contact</a></li>
+            <li class="lang-switcher" role="group" aria-label="Language">
+                <button class="lang-btn" data-lang="en" type="button">EN</button>
+                <button class="lang-btn" data-lang="ar" type="button">AR</button>
+                <button class="lang-btn" data-lang="it" type="button">IT</button>
+            </li>
+            <li><button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <i class="fa-solid fa-moon"></i>
+                </button></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-3d-canvas" id="hero3d" aria-hidden="true"></div>
+        <div class="hero-inner">
+            <div class="hero-text">
+                <h1 id="heroGreeting">Hi, I'm <span>Abdo</span></h1>
+                <h3 id="typed-text">Frontend Developer</h3>
+                <p data-i18n="hero_intro">Passionate IT student with hands-on experience in web development,
+                    networking, and cybersecurity. Building clean, modern interfaces
+                    and solving real-world problems.</p>
+                <div class="hero-btns">
+                    <a class="btn" href="assets/resume/Abdelrahman-Hamdy-Roubi-Resume.pdf" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-download"></i> <span data-i18n="hero_btn_cv">Download CV</span>
+                    </a>
+                    <a class="btn btn-outline" href="#projects" data-i18n="hero_btn_projects">View Projects</a>
+                </div>
+            </div>
+            <div class="hero-img" id="heroImgWrap">
+                <div class="hero-img-ring" aria-hidden="true"></div>
+                <div class="hero-img-tilt" id="heroImgTilt">
+                    <picture>
+                        <source srcset="assets/images/abdo-profile.webp" type="image/webp">
+                        <img src="assets/images/abdo-profile.jpg" alt="Abdo Hamdy" width="280" height="280">
+                    </picture>
+                </div>
+            </div>
+            <div class="social-sidebar">
+                <a href="https://www.facebook.com/share/17taTJw472/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/abdul_hamdy1?igsh=MWw2OGRnbDNpOHh3NA=="
+                    target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://linkedin.com/in/abdo-hamdy-9b3080332" target="_blank" rel="noopener" aria-label="LinkedIn"><i
+                        class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://github.com/Abdelrahman-Hamdi12" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            </div>
+        </div>
+        <a href="#about" class="scroll-indicator" aria-label="Scroll down">
+            <i class="fa-solid fa-chevron-down"></i>
+        </a>
+    </section>
+
+    <section class="stats-bar">
+        <div class="stats-inner reveal">
+            <div class="stat-item"><span class="stat-num" data-count="11">0</span><span class="stat-label" data-i18n="stats_projects">Projects</span></div>
+            <div class="stat-item"><span class="stat-num" data-count="11">0</span><span class="stat-label" data-i18n="stats_certs">Certificates</span></div>
+            <div class="stat-item"><span class="stat-num" data-count="3">0</span><span class="stat-label" data-i18n="stats_languages">Languages</span></div>
+        </div>
+    </section>
+
+    <section id="about" class="about section">
+        <div class="container-inner reveal">
+            <h2 class="section-title" data-i18n="about_title">About Me</h2>
+            <div class="about-content">
+                <picture>
+                    <source srcset="assets/images/abdo-about.webp" type="image/webp">
+                    <img src="assets/images/abdo-about.jpg" alt="Abdo Hamdy" width="240" height="240" loading="lazy">
+                </picture>
+                <div class="about-text">
+                    <h3 data-i18n="about_subtitle">Who I Am</h3>
+                    <p data-i18n="about_p1">I'm Abdelrahman Hamdi, a 19-year-old IT student at the Integrated Technical Education
+                        Complex (Italian School) in Fayoum. I'm passionate about programming, web development,
+                        networking, and cybersecurity.</p>
+                    <p data-i18n="about_p2">I speak Arabic natively, English (B1), and Italian (B2.1), which lets me collaborate
+                        with international clients. Always eager to learn and grow professionally.</p>
+                    <div class="about-facts">
+                        <div class="fact"><i class="fa-solid fa-map-marker-alt"></i><span data-i18n="about_fact_location">Fayoum, Egypt</span></div>
+                        <div class="fact"><i class="fa-solid fa-graduation-cap"></i><span data-i18n="about_fact_student">IT Student</span></div>
+                        <div class="fact"><i class="fa-solid fa-language"></i><span data-i18n="about_fact_lang">Arabic · English · Italian</span>
+                        </div>
+                    </div>
+                    <a href="#contact" class="btn" data-i18n="about_btn_contact">Contact Me</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills section">
+        <div class="container-inner reveal">
+            <h2 class="section-title" data-i18n="skills_title">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item reveal">
+                    <div class="skill-header"><i class="fa-brands fa-html5"></i><span>HTML &amp;
+                            CSS</span><small>90%</small></div>
+                    <div class="skill-bar">
+                        <div class="skill-fill" data-width="90%"></div>
+                    </div>
+                </div>
+                <div class="skill-item reveal">
+                    <div class="skill-header"><i class="fa-brands fa-js"></i><span>JavaScript</span><small>75%</small>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-fill" data-width="75%"></div>
+                    </div>
+                </div>
+                <div class="skill-item reveal">
+                    <div class="skill-header"><i class="fa-brands fa-php"></i><span>PHP &amp; MySQL</span><small>65%</small>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-fill" data-width="65%"></div>
+                    </div>
+                </div>
+                <div class="skill-item reveal">
+                    <div class="skill-header"><i class="fa-brands fa-python"></i><span>Python</span><small>65%</small>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-fill" data-width="65%"></div>
+                    </div>
+                </div>
+                <div class="skill-item reveal">
+                    <div class="skill-header"><i class="fa-brands fa-java"></i><span>Java</span><small>76%</small>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-fill" data-width="76%"></div>
+                    </div>
+                </div>
+                <div class="skill-item reveal">
+                    <div class="skill-header"><i class="fa-solid fa-code"></i><span>C</span><small>73%</small>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-fill" data-width="73%"></div>
+                    </div>
+                </div>
+                <div class="skill-item reveal">
+                    <div class="skill-header"><i class="fa-solid fa-cubes"></i><span>C++</span><small>71%</small>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-fill" data-width="71%"></div>
+                    </div>
+                </div>
+                <div class="skill-item reveal">
+                    <div class="skill-header"><i class="fa-solid fa-server"></i><span>Django (Backend)</span><small>74%</small>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-fill" data-width="74%"></div>
+                    </div>
+                </div>
+                <div class="skill-item reveal">
+                    <div class="skill-header"><i class="fa-solid fa-database"></i><span data-i18n="skill_databases">Databases</span><small>75%</small>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-fill" data-width="75%"></div>
+                    </div>
+                </div>
+                <div class="skill-item reveal">
+                    <div class="skill-header"><i class="fa-solid fa-diagram-project"></i><span data-i18n="skill_datastructures">Data
+                            Structures</span><small>72%</small></div>
+                    <div class="skill-bar">
+                        <div class="skill-fill" data-width="72%"></div>
+                    </div>
+                </div>
+                <div class="skill-item reveal">
+                    <div class="skill-header"><i class="fa-solid fa-network-wired"></i><span data-i18n="skill_networking">Networking
+                            (CCNA)</span><small>76%</small></div>
+                    <div class="skill-bar">
+                        <div class="skill-fill" data-width="76%"></div>
+                    </div>
+                </div>
+                <div class="skill-item reveal">
+                    <div class="skill-header"><i
+                            class="fa-solid fa-shield-halved"></i><span data-i18n="skill_cybersecurity">Cybersecurity</span><small>60%</small></div>
+                    <div class="skill-bar">
+                        <div class="skill-fill" data-width="60%"></div>
+                    </div>
+                </div>
+                <div class="skill-item reveal">
+                    <div class="skill-header"><i class="fa-solid fa-microchip"></i><span data-i18n="skill_iot">IoT
+                            (Internet of Things)</span><small>78%</small></div>
+                    <div class="skill-bar">
+                        <div class="skill-fill" data-width="78%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="certs-title" data-i18n="certs_title">Certificates</h3>
+            <div class="certs-groups">
+                <div class="certs-group">
+                    <h4 data-i18n="certs_group_networking">Networking &amp; Cisco</h4>
+                    <div class="certs-grid">
+                        <a class="cert-card reveal" href="assets/certificates/ccna-introduction-to-networks.pdf" target="_blank" rel="noopener">
+                            <div class="cert-thumb">
+                                <picture>
+                                    <source srcset="assets/images/certs-thumbs/ccna-introduction-to-networks.webp" type="image/webp">
+                                    <img src="assets/images/certs-thumbs/ccna-introduction-to-networks.jpg" alt="" loading="lazy" width="480" height="325">
+                                </picture>
+                            </div>
+                            <div class="cert-body">
+                                <h5>CCNA: Introduction to Networks</h5>
+                                <span class="cert-org">Cisco Networking Academy</span>
+                                <span class="cert-date">Aug 2025</span>
+                            </div>
+                        </a>
+                        <a class="cert-card reveal" href="assets/certificates/ccna-switching-routing-wireless-essentials.pdf" target="_blank" rel="noopener">
+                            <div class="cert-thumb">
+                                <picture>
+                                    <source srcset="assets/images/certs-thumbs/ccna-switching-routing-wireless-essentials.webp" type="image/webp">
+                                    <img src="assets/images/certs-thumbs/ccna-switching-routing-wireless-essentials.jpg" alt="" loading="lazy" width="480" height="325">
+                                </picture>
+                            </div>
+                            <div class="cert-body">
+                                <h5>CCNA: Switching, Routing &amp; Wireless Essentials</h5>
+                                <span class="cert-org">Cisco Networking Academy</span>
+                                <span class="cert-date">Oct 2025</span>
+                            </div>
+                        </a>
+                        <a class="cert-card reveal" href="assets/certificates/ccna-enterprise-networking-security-automation.pdf" target="_blank" rel="noopener">
+                            <div class="cert-thumb">
+                                <picture>
+                                    <source srcset="assets/images/certs-thumbs/ccna-enterprise-networking-security-automation.webp" type="image/webp">
+                                    <img src="assets/images/certs-thumbs/ccna-enterprise-networking-security-automation.jpg" alt="" loading="lazy" width="480" height="325">
+                                </picture>
+                            </div>
+                            <div class="cert-body">
+                                <h5>CCNA: Enterprise Networking, Security &amp; Automation</h5>
+                                <span class="cert-org">Cisco Networking Academy</span>
+                                <span class="cert-date">Oct 2025</span>
+                            </div>
+                        </a>
+                        <a class="cert-card reveal" href="assets/certificates/networking-basics.pdf" target="_blank" rel="noopener">
+                            <div class="cert-thumb">
+                                <picture>
+                                    <source srcset="assets/images/certs-thumbs/networking-basics.webp" type="image/webp">
+                                    <img src="assets/images/certs-thumbs/networking-basics.jpg" alt="" loading="lazy" width="480" height="370">
+                                </picture>
+                            </div>
+                            <div class="cert-body">
+                                <h5>Networking Basics</h5>
+                                <span class="cert-org">Cisco Networking Academy</span>
+                                <span class="cert-date">Jan 2026</span>
+                            </div>
+                        </a>
+                        <a class="cert-card reveal" href="assets/certificates/network-technician-career-path.pdf" target="_blank" rel="noopener">
+                            <div class="cert-thumb">
+                                <picture>
+                                    <source srcset="assets/images/certs-thumbs/network-technician-career-path.webp" type="image/webp">
+                                    <img src="assets/images/certs-thumbs/network-technician-career-path.jpg" alt="" loading="lazy" width="480" height="370">
+                                </picture>
+                            </div>
+                            <div class="cert-body">
+                                <h5>Network Technician Career Path</h5>
+                                <span class="cert-org">Cisco Networking Academy</span>
+                                <span class="cert-date">Jan 2026</span>
+                            </div>
+                        </a>
+                        <a class="cert-card reveal" href="assets/certificates/industrial-networking-essentials.pdf" target="_blank" rel="noopener">
+                            <div class="cert-thumb">
+                                <picture>
+                                    <source srcset="assets/images/certs-thumbs/industrial-networking-essentials.webp" type="image/webp">
+                                    <img src="assets/images/certs-thumbs/industrial-networking-essentials.jpg" alt="" loading="lazy" width="480" height="370">
+                                </picture>
+                            </div>
+                            <div class="cert-body">
+                                <h5>Industrial Networking Essentials</h5>
+                                <span class="cert-org">Cisco Networking Academy</span>
+                                <span class="cert-date">Jan 2026</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="certs-group">
+                    <h4 data-i18n="certs_group_it">IT &amp; Cybersecurity</h4>
+                    <div class="certs-grid">
+                        <a class="cert-card reveal" href="assets/certificates/introduction-to-cybersecurity.pdf" target="_blank" rel="noopener">
+                            <div class="cert-thumb">
+                                <picture>
+                                    <source srcset="assets/images/certs-thumbs/introduction-to-cybersecurity.webp" type="image/webp">
+                                    <img src="assets/images/certs-thumbs/introduction-to-cybersecurity.jpg" alt="" loading="lazy" width="480" height="370">
+                                </picture>
+                            </div>
+                            <div class="cert-body">
+                                <h5>Introduction to Cybersecurity</h5>
+                                <span class="cert-org">Cisco Networking Academy</span>
+                                <span class="cert-date">Jan 2026</span>
+                            </div>
+                        </a>
+                        <a class="cert-card reveal" href="assets/certificates/digital-safety-security-awareness.pdf" target="_blank" rel="noopener">
+                            <div class="cert-thumb">
+                                <picture>
+                                    <source srcset="assets/images/certs-thumbs/digital-safety-security-awareness.webp" type="image/webp">
+                                    <img src="assets/images/certs-thumbs/digital-safety-security-awareness.jpg" alt="" loading="lazy" width="480" height="370">
+                                </picture>
+                            </div>
+                            <div class="cert-body">
+                                <h5>Digital Safety &amp; Security Awareness</h5>
+                                <span class="cert-org">Cisco Networking Academy</span>
+                                <span class="cert-date">Jan 2026</span>
+                            </div>
+                        </a>
+                        <a class="cert-card reveal" href="assets/certificates/introduction-to-iot.pdf" target="_blank" rel="noopener">
+                            <div class="cert-thumb">
+                                <picture>
+                                    <source srcset="assets/images/certs-thumbs/introduction-to-iot.webp" type="image/webp">
+                                    <img src="assets/images/certs-thumbs/introduction-to-iot.jpg" alt="" loading="lazy" width="480" height="370">
+                                </picture>
+                            </div>
+                            <div class="cert-body">
+                                <h5>Introduction to IoT</h5>
+                                <span class="cert-org">Cisco Networking Academy</span>
+                                <span class="cert-date">Jan 2026</span>
+                            </div>
+                        </a>
+                        <a class="cert-card reveal" href="assets/certificates/introduction-to-modern-ai.pdf" target="_blank" rel="noopener">
+                            <div class="cert-thumb">
+                                <picture>
+                                    <source srcset="assets/images/certs-thumbs/introduction-to-modern-ai.webp" type="image/webp">
+                                    <img src="assets/images/certs-thumbs/introduction-to-modern-ai.jpg" alt="" loading="lazy" width="480" height="370">
+                                </picture>
+                            </div>
+                            <div class="cert-body">
+                                <h5>Introduction to Modern AI</h5>
+                                <span class="cert-org">Cisco Networking Academy</span>
+                                <span class="cert-date">Jan 2026</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="certs-group">
+                    <h4 data-i18n="certs_group_languages">Languages</h4>
+                    <div class="certs-grid certs-grid-compact">
+                        <a class="cert-card reveal" href="assets/certificates/italian-language-level-6.pdf" target="_blank" rel="noopener">
+                            <div class="cert-thumb">
+                                <picture>
+                                    <source srcset="assets/images/certs-thumbs/italian-language-level-6.webp" type="image/webp">
+                                    <img src="assets/images/certs-thumbs/italian-language-level-6.jpg" alt="" loading="lazy" width="480" height="339">
+                                </picture>
+                            </div>
+                            <div class="cert-body">
+                                <h5>Italian Language - Level 6</h5>
+                                <span class="cert-org">Istituto Italiano di Cultura, Cairo</span>
+                                <span class="cert-date">Mar 2025</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="journey" class="journey section">
+        <div class="container-inner reveal">
+            <h2 class="section-title" data-i18n="journey_title">My Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Oct 2024</span>
+                        <h4 data-i18n="j1_title">Started IT Studies</h4>
+                        <p data-i18n="j1_desc">Began the Information Technology track at the Integrated Technical Education Complex
+                            (Italian School), Fayoum.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Mar 2025</span>
+                        <h4 data-i18n="j2_title">Italian Language - Level 6</h4>
+                        <p data-i18n="j2_desc">Completed a 40-hour course at the Istituto Italiano di Cultura, Cairo.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Aug - Oct 2025</span>
+                        <h4 data-i18n="j3_title">CCNA Track (3 courses)</h4>
+                        <p data-i18n="j3_desc">Introduction to Networks, Switching/Routing/Wireless Essentials, and Enterprise
+                            Networking/Security/Automation - Cisco Networking Academy.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Jan 2026</span>
+                        <h4 data-i18n="j4_title">7 More Cisco Certificates</h4>
+                        <p data-i18n="j4_desc">Networking Basics, Introduction to Cybersecurity, IoT, Modern AI, Network Technician
+                            Career Path, Industrial Networking Essentials, and Digital Safety &amp; Security Awareness.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Now</span>
+                        <h4 data-i18n="j5_title">Building &amp; Applying</h4>
+                        <p data-i18n="j5_desc">Growing a full-stack portfolio (PHP/MySQL, JavaScript) while looking for a first
+                            frontend/full-stack internship.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects section">
+        <div class="container-inner reveal">
+            <h2 class="section-title" data-i18n="projects_title">My Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card reveal" data-tilt-card>
+                    <div class="card-glow" aria-hidden="true"></div>
+                    <div class="project-card-inner">
+                        <div class="project-image">
+                            <picture>
+                                <source srcset="assets/images/project-coffee-shop.webp" type="image/webp">
+                                <img src="assets/images/project-coffee-shop.jpg" alt="Coffee Shop Management System preview" loading="lazy" width="640" height="344">
+                            </picture>
+                        </div>
+                        <div class="project-body">
+                            <h3>Coffee Shop Management System</h3>
+                            <p data-i18n="p1_desc">A Coffee Shop project built in two versions: a front-end UI/UX experience with a
+                                shopping cart, and a full-stack system adding authentication, OTP verification,
+                                checkout, order management, and an admin dashboard.</p>
+                            <div class="project-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Bootstrap</span><span>PHP</span><span>MySQL</span></div>
+                            <div class="project-links">
+                                <button class="project-btn">
+                                    <a href="https://abdelrahman-hamdi12.github.io/Coffee-Shop-Website/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i> <span data-i18n="btn_live">Live Demo</span></a>
+                                </button>
+                                <button class="project-btn">
+                                    <a href="https://github.com/Abdelrahman-Hamdi12/Coffee-Shop-Website" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> <span data-i18n="btn_frontend">Front-End</span></a>
+                                </button>
+                                <span class="btn-sm btn-pending"><i class="fa-solid fa-clock"></i> <span data-i18n="btn_pending_fullstack">Full-Stack coming soon</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card reveal" data-tilt-card>
+                    <div class="card-glow" aria-hidden="true"></div>
+                    <div class="project-card-inner">
+                        <div class="project-image">
+                            <picture>
+                                <source srcset="assets/images/project-portfolio-preview.webp" type="image/webp">
+                                <img src="assets/images/project-portfolio-preview.jpg" alt="Personal Portfolio preview" loading="lazy" width="640" height="360">
+                            </picture>
+                        </div>
+                        <div class="project-body">
+                            <h3>Personal Portfolio</h3>
+                            <p data-i18n="p2_desc">This portfolio itself: a responsive personal website built with HTML, CSS, and JavaScript,
+                                featuring an interactive 3D hero, animated skill bars, and smooth navigation.</p>
+                            <div class="project-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Three.js</span></div>
+                            <div class="project-links">
+                                <button class="project-btn">
+                                    <a href="https://github.com/Abdelrahman-Hamdi12/Responsive-Personal-Portfolio1" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> <span data-i18n="btn_code">Code</span></a>
+                                </button>
+                                <span class="btn-sm btn-pending"><i class="fa-solid fa-clock"></i> <span data-i18n="btn_pending_live">Live demo coming soon</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card reveal" data-tilt-card>
+                    <div class="card-glow" aria-hidden="true"></div>
+                    <div class="project-card-inner">
+                        <div class="project-image">
+                            <picture>
+                                <source srcset="assets/images/project-network-lab.webp" type="image/webp">
+                                <img src="assets/images/project-network-lab.jpg" alt="Network Topology Lab in Cisco Packet Tracer" loading="lazy" width="640" height="360">
+                            </picture>
+                        </div>
+                        <div class="project-body">
+                            <h3>Network Topology Lab</h3>
+                            <p data-i18n="p3_desc">A simulated network topology using Cisco Packet Tracer. Configured routers,
+                                switches, and VLANs as part of CCNA training to demonstrate real networking.</p>
+                            <div class="project-tags"><span>Cisco</span><span>CCNA</span><span>Networking</span></div>
+                            <div class="project-links">
+                                <span class="btn-sm btn-pending"><i class="fa-solid fa-clock"></i> <span data-i18n="btn_pending_files">Files coming soon</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card reveal" data-tilt-card>
+                    <div class="card-glow" aria-hidden="true"></div>
+                    <div class="project-card-inner">
+                        <div class="project-image project-image-placeholder"><i class="fa-brands fa-python"></i></div>
+                        <div class="project-body">
+                            <h3>Python Scripts</h3>
+                            <p data-i18n="p4_desc">A collection of Python scripts covering automation, algorithms, and data
+                                processing — built to strengthen core programming fundamentals.</p>
+                            <div class="project-tags"><span>Python</span><span>Automation</span></div>
+                            <div class="project-links">
+                                <span class="btn-sm btn-pending"><i class="fa-solid fa-clock"></i> <span data-i18n="btn_pending_code">Code coming soon</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card reveal" data-tilt-card>
+                    <div class="card-glow" aria-hidden="true"></div>
+                    <div class="project-card-inner">
+                        <div class="project-image">
+                            <picture>
+                                <source srcset="assets/images/project-sun-animation.webp" type="image/webp">
+                                <img src="assets/images/project-sun-animation.jpg" alt="Sun animation project preview" loading="lazy" width="640" height="339">
+                            </picture>
+                        </div>
+                        <div class="project-body">
+                            <h3>Sun Animation</h3>
+                            <p data-i18n="p5_desc">A CSS/JavaScript animation of the sun moving across the sky, creating a smooth
+                                sunrise-to-sunset effect with natural, attractive motion.</p>
+                            <div class="project-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+                            <div class="project-links">
+                                <button class="project-btn">
+                                    <a href="https://abdelrahman-hamdi12.github.io/Animation-Sun/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i> <span data-i18n="btn_live">Live Demo</span></a>
+                                </button>
+                                <button class="project-btn">
+                                    <a href="https://github.com/Abdelrahman-Hamdi12/Animation-Sun" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> <span data-i18n="btn_code">Code</span></a>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card reveal" data-tilt-card>
+                    <div class="card-glow" aria-hidden="true"></div>
+                    <div class="project-card-inner">
+                        <div class="project-image">
+                            <picture>
+                                <source srcset="assets/images/project-eye-animation.webp" type="image/webp">
+                                <img src="assets/images/project-eye-animation.jpg" alt="Eye animation project preview" loading="lazy" width="640" height="343">
+                            </picture>
+                        </div>
+                        <div class="project-body">
+                            <h3>Eye Animation</h3>
+                            <p data-i18n="p6_desc">A CSS/JavaScript animation of a pair of eyes that blink and look naturally in
+                                different directions for a smooth, realistic effect.</p>
+                            <div class="project-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+                            <div class="project-links">
+                                <button class="project-btn">
+                                    <a href="https://abdelrahman-hamdi12.github.io/Animation-EYE/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i> <span data-i18n="btn_live">Live Demo</span></a>
+                                </button>
+                                <button class="project-btn">
+                                    <a href="https://github.com/Abdelrahman-Hamdi12/Animation-EYE" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> <span data-i18n="btn_code">Code</span></a>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card reveal" data-tilt-card>
+                    <div class="card-glow" aria-hidden="true"></div>
+                    <div class="project-card-inner">
+                        <div class="project-image">
+                            <picture>
+                                <source srcset="assets/images/project-restaurant-design.webp" type="image/webp">
+                                <img src="assets/images/project-restaurant-design.jpg" alt="TesteNest restaurant website preview" loading="lazy" width="640" height="344">
+                            </picture>
+                        </div>
+                        <div class="project-body">
+                            <h3>TesteNest - Restaurant Website</h3>
+                            <p data-i18n="p7_desc">A restaurant website with a welcoming design, menu highlights, and a modern,
+                                inviting layout for a pleasant dining experience.</p>
+                            <div class="project-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+                            <div class="project-links">
+                                <button class="project-btn">
+                                    <a href="https://abdelrahman-hamdi12.github.io/Food-/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i> <span data-i18n="btn_live">Live Demo</span></a>
+                                </button>
+                                <button class="project-btn">
+                                    <a href="https://github.com/Abdelrahman-Hamdi12/Food-" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> <span data-i18n="btn_code">Code</span></a>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card reveal" data-tilt-card>
+                    <div class="card-glow" aria-hidden="true"></div>
+                    <div class="project-card-inner">
+                        <div class="project-image">
+                            <picture>
+                                <source srcset="assets/images/project-family-bakery.webp" type="image/webp">
+                                <img src="assets/images/project-family-bakery.jpg" alt="Family Bakery cafe website preview" loading="lazy" width="640" height="348">
+                            </picture>
+                        </div>
+                        <div class="project-body">
+                            <h3>Family Bakery - Café Website</h3>
+                            <p data-i18n="p8_desc">A cozy café/bakery website with a warm atmosphere, menu highlights, and a modern
+                                layout designed for a relaxing customer experience.</p>
+                            <div class="project-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+                            <div class="project-links">
+                                <button class="project-btn">
+                                    <a href="https://abdelrahman-hamdi12.github.io/Family-Bakery/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i> <span data-i18n="btn_live">Live Demo</span></a>
+                                </button>
+                                <button class="project-btn">
+                                    <a href="https://github.com/Abdelrahman-Hamdi12/Family-Bakery" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> <span data-i18n="btn_code">Code</span></a>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card reveal" data-tilt-card>
+                    <div class="card-glow" aria-hidden="true"></div>
+                    <div class="project-card-inner">
+                        <div class="project-image">
+                            <picture>
+                                <source srcset="assets/images/project-api-integration.webp" type="image/webp">
+                                <img src="assets/images/project-api-integration.jpg" alt="GET product catalog preview" loading="lazy" width="640" height="346">
+                            </picture>
+                        </div>
+                        <div class="project-body">
+                            <h3>GET - Product Catalog</h3>
+                            <p data-i18n="p9_desc">A product catalog that fetches and displays live data from the DummyJSON API using
+                                JavaScript, demonstrating dynamic requests and real-time UI updates.</p>
+                            <div class="project-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>API</span></div>
+                            <div class="project-links">
+                                <button class="project-btn">
+                                    <a href="https://abdelrahman-hamdi12.github.io/API-Integration-with-JavaScript/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i> <span data-i18n="btn_live">Live Demo</span></a>
+                                </button>
+                                <button class="project-btn">
+                                    <a href="https://github.com/Abdelrahman-Hamdi12/API-Integration-with-JavaScript" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> <span data-i18n="btn_code">Code</span></a>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card reveal" data-tilt-card>
+                    <div class="card-glow" aria-hidden="true"></div>
+                    <div class="project-card-inner">
+                        <div class="project-image">
+                            <picture>
+                                <source srcset="assets/images/project-finance-landing.webp" type="image/webp">
+                                <img src="assets/images/project-finance-landing.jpg" alt="Finance Landing Page preview, repair and maintenance services" loading="lazy" width="640" height="344">
+                            </picture>
+                        </div>
+                        <div class="project-body">
+                            <h3>Finance Landing Page</h3>
+                            <p data-i18n="p10_desc">A responsive landing page built with HTML, CSS, and JavaScript, presenting repair
+                                and maintenance services across Home, About, Services, and Contact sections.</p>
+                            <div class="project-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+                            <div class="project-links">
+                                <button class="project-btn">
+                                    <a href="https://abdelrahman-hamdi12.github.io/Finance-Landing-Page/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i> <span data-i18n="btn_live">Live Demo</span></a>
+                                </button>
+                                <button class="project-btn">
+                                    <a href="https://github.com/Abdelrahman-Hamdi12/Finance-Landing-Page" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> <span data-i18n="btn_code">Code</span></a>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card reveal" data-tilt-card>
+                    <div class="card-glow" aria-hidden="true"></div>
+                    <div class="project-card-inner">
+                        <div class="project-image">
+                            <picture>
+                                <source srcset="assets/images/project-todo-list.webp" type="image/webp">
+                                <img src="assets/images/project-todo-list.jpg" alt="To-Do List app preview" loading="lazy" width="640" height="339">
+                            </picture>
+                        </div>
+                        <div class="project-body">
+                            <h3>To-Do List App</h3>
+                            <p data-i18n="p11_desc">A simple to-do list app for adding, checking off, and deleting daily tasks, with a
+                                clean and lightweight interface.</p>
+                            <div class="project-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+                            <div class="project-links">
+                                <button class="project-btn">
+                                    <a href="https://abdelrahman-hamdi12.github.io/To-Do-List/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i> <span data-i18n="btn_live">Live Demo</span></a>
+                                </button>
+                                <button class="project-btn">
+                                    <a href="https://github.com/Abdelrahman-Hamdi12/To-Do-List" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> <span data-i18n="btn_code">Code</span></a>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="github-stats" class="github-stats section">
+        <div class="container-inner reveal">
+            <h2 class="section-title" data-i18n="github_title">GitHub Activity</h2>
+            <div class="github-stats-grid">
+                <div class="gh-stat-card">
+                    <i class="fa-solid fa-code-branch"></i>
+                    <span class="gh-stat-num" id="ghRepos">—</span>
+                    <span class="gh-stat-label" data-i18n="github_repos">Public Repos</span>
+                </div>
+                <div class="gh-stat-card">
+                    <i class="fa-solid fa-star"></i>
+                    <span class="gh-stat-num" id="ghStars">—</span>
+                    <span class="gh-stat-label" data-i18n="github_stars">Total Stars</span>
+                </div>
+                <a class="gh-stat-card gh-stat-link" href="https://github.com/Abdelrahman-Hamdi12" target="_blank" rel="noopener">
+                    <i class="fa-brands fa-github"></i>
+                    <span class="gh-stat-label">@Abdelrahman-Hamdi12</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services section">
+        <div class="container-inner reveal">
+            <h2 class="section-title" data-i18n="services_title">Services</h2>
+            <div class="service-boxes">
+                <div class="service-card">
+                    <i class="fa-solid fa-laptop-code"></i>
+                    <h3 data-i18n="s1_title">Web Development</h3>
+                    <p data-i18n="s1_desc">Building modern, responsive websites with clean code tailored to each client's vision.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fa-solid fa-chalkboard-teacher"></i>
+                    <h3 data-i18n="s2_title">Programming Training</h3>
+                    <p data-i18n="s2_desc">Teaching programming to beginners in a simple, practical, and enjoyable way.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fa-solid fa-globe"></i>
+                    <h3 data-i18n="s3_title">Multilingual Freelancing</h3>
+                    <p data-i18n="s3_desc">Web services for Arabic, English, and Italian-speaking clients. Italian voice-over available.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact section">
+        <div class="container-inner reveal">
+            <h2 class="section-title" data-i18n="contact_title">Contact Me</h2>
+            <div class="contact-card">
+                <div class="contact-info">
+                    <div class="contact-item reveal"><i class="fa-solid fa-phone"></i><a href="tel:+201003908848">+201003908848</a></div>
+                    <div class="contact-item reveal"><i class="fa-solid fa-envelope"></i><a
+                            href="mailto:abdohamdyy64@gmail.com">abdohamdyy64@gmail.com</a></div>
+                    <div class="contact-item reveal"><i class="fa-solid fa-location-dot"></i><span>Fayoum, Egypt</span></div>
+                    <div class="contact-item reveal"><i class="fa-brands fa-instagram"></i><a
+                            href="https://www.instagram.com/abdul_hamdy1?igsh=MWw2OGRnbDNpOHh3NA=="
+                            target="_blank" rel="noopener">@abdul_hamdy1</a></div>
+                    <div class="contact-item reveal"><i class="fa-brands fa-linkedin"></i><a
+                            href="https://linkedin.com/in/abdo-hamdy-9b3080332"
+                            target="_blank" rel="noopener">linkedin.com/in/abdo-hamdy</a></div>
+                </div>
+
+                <form class="contact-form" id="contactForm" data-service-id="service_7csjyg5" data-template-id="template_s2fpr3p">
+                    <div class="form-row floating">
+                        <input type="text" id="cf-name" name="name" placeholder=" " required>
+                        <label for="cf-name" data-i18n="form_name">Name</label>
+                    </div>
+                    <div class="form-row floating">
+                        <input type="email" id="cf-email" name="email" placeholder=" " required>
+                        <label for="cf-email" data-i18n="form_email">Email</label>
+                    </div>
+                    <div class="form-row floating">
+                        <textarea id="cf-message" name="message" rows="4" placeholder=" " required></textarea>
+                        <label for="cf-message" data-i18n="form_message">Message</label>
+                    </div>
+                    <button type="submit" class="btn form-submit" id="formSubmitBtn">
+                        <span class="btn-text"><i class="fa-solid fa-paper-plane"></i> <span data-i18n="form_submit">Send Message</span></span>
+                        <span class="btn-spinner" aria-hidden="true"></span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p data-i18n-html="footer_html">&copy; 2025–2026 Developed by <strong>Eng. Abdo Hamdy Roubi</strong></p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/share/17taTJw472/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/abdul_hamdy1?igsh=MWw2OGRnbDNpOHh3NA=="
+                    target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://linkedin.com/in/abdo-hamdy-9b3080332" target="_blank" rel="noopener" aria-label="LinkedIn"><i
+                        class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://github.com/Abdelrahman-Hamdi12" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+    <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
